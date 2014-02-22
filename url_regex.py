@@ -14,4 +14,12 @@ def long_substr(data):
                     substr = data[0][i:i + j]
     return substr
 
+"""
+Idea is to find the only changing part from the URL and make a regular expression out of it. 
+
+1.First find the longest common substring prefix
+2.The remove it from the urls and obtain a list of the remaining URL
+3.Repeat one till there is no more LCS 
+4.Make pattern from the list LCSs
+"""
 print long_substr(test_urls)
