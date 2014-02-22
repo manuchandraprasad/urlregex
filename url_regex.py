@@ -40,10 +40,13 @@ def find_common_substrs(data):
         lcs = long_substr(data)
         subs = substring_pos(data[0], lcs)
         longest_common_substrings.append(subs)
-        new_data = []
-        for url in data:
-            new_data.append(url.replace(lcs,''))
-        data = new_data
+        #Check if end of string reached
+        if(data[0].index(lcs) != len(data[0])-len(lcs)):
+            new_data = []
+            for url in data:
+                new_data.append(url.replace(lcs,''))
+            data = new_data
+
     return longest_common_substrings
 
 def create_regex(data):
@@ -58,3 +61,4 @@ def create_regex(data):
     s = s.replace('^','.+')
     return re.compile(s)
 
+print create_regex(test_urls_4).pattern

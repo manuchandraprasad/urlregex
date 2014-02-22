@@ -156,7 +156,7 @@ test_urls_3 = [u'http://www.net-a-porter.com/product/408197/messages/3382042',
 
 #Case 4
 #Failed with current set
- test_urls_4 = [u'http://kedin.es/cordoba/que-hacer/concierto-de-david-bisbal-en-cordoba.html',
+test_urls_4 = [u'http://kedin.es/cordoba/que-hacer/concierto-de-david-bisbal-en-cordoba.html',
  u'http://kedin.es/cadiz/que-hacer/concierto-de-guadalupe-plata-en-algeciras.html',
  u'http://kedin.es/cadiz/que-hacer/david-demaria-en-concierto-en-el-teatro-falla-de-cadiz.html',
  u'http://kedin.es/cuenca/que-hacer/poncho-k-en-concierto-en-cuenca.html',
