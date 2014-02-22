@@ -14,6 +14,18 @@ def long_substr(data):
                     substr = data[0][i:i + j]
     return substr
 
+
+def substring_pos(string,substring):
+    pos = string.index(substring)
+    if pos == 0:
+        #Substring is in the begining of string
+        return substring+"^"
+    elif pos == len(string)-len(substring):
+        #Substring is in the end of the string
+        return "^"+substring 
+    else:
+        return "^"+substring+"^"
+
 """
 Idea is to find the only changing part from the URL and make a regular expression out of it. 
 
@@ -27,12 +39,14 @@ def find_common_substr(data):
     longest_common_substrings = []
     while(long_substr(data)):
         lcs = long_substr(data)
+        subs = substring_pos(data[0], lcs)
+        print subs
         longest_common_substrings.append(lcs)
         new_data = []
         for url in data:
-            new_data.append(url.replace(lcs,'<*>'))
+            new_data.append(url.replace(lcs,''))
         data = new_data
     print longest_common_substrings
 
 
-#find_common_substr(test_urls_2)        
+find_common_substr(test_urls_2)        
