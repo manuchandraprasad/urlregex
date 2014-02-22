@@ -153,3 +153,28 @@ test_urls_3 = [u'http://www.net-a-porter.com/product/408197/messages/3382042',
  u'http://www.net-a-porter.com/product/373903/messages/9645136',
  u'http://www.net-a-porter.com/product/382061/messages/6456316',
  u'http://www.net-a-porter.com/product/382062/messages/2151204']
+
+#Case 4
+#Failed with current set
+ test_urls_4 = [u'http://kedin.es/cordoba/que-hacer/concierto-de-david-bisbal-en-cordoba.html',
+ u'http://kedin.es/cadiz/que-hacer/concierto-de-guadalupe-plata-en-algeciras.html',
+ u'http://kedin.es/cadiz/que-hacer/david-demaria-en-concierto-en-el-teatro-falla-de-cadiz.html',
+ u'http://kedin.es/cuenca/que-hacer/poncho-k-en-concierto-en-cuenca.html',
+ u'http://kedin.es/cuenca/que-hacer/los-chikos-del-maiz-en-concierto-en-cuenca.html',
+ u'http://kedin.es/cuenca/que-hacer/la-raiz-en-concierto-en-la-sala-babylon-de-cuenca.html',
+ u'http://kedin.es/cuenca/que-hacer/def-con-dos-en-concierto-en-la-sala-babylon-de-cuenca.html',
+ u'http://kedin.es/cuenca/que-hacer/depedro-en-la-sala-babylon-de-cuenca.html',
+ u'http://kedin.es/cadiz/que-hacer/concierto-de-sr-chinarro-en-la-linea-de-la-concepcion.html',
+ u'http://kedin.es/cadiz/que-hacer/andy-lucas-en-concierto-en-la-linea-de-la-concepcion.html',
+ u'http://kedin.es/cadiz/que-hacer/andy-lucas-en-concierto-en-el-teatro-falla-de-cadiz.html',
+ u'http://kedin.es/cadiz/que-hacer/vita-imana-en-concierto-en-el-imagina-club-de-cadiz.html',
+ u'http://kedin.es/cadiz/que-hacer/concurso-infantil-de-carnaval-en-el-corte-ingles-de-jerez.html',
+ u'http://kedin.es/cadiz/que-hacer/concierto-de-triangulo-de-amor-bizarro-en-la-sala-supersonic-de-cadiz.html',
+ u'http://kedin.es/cadiz/que-hacer/cabezali-en-directo-en-algeciras.html',
+ u'http://kedin.es/cadiz/que-hacer/abraham-mateo-en-concierto-en-el-carnaval-de-cadiz.html',
+ u'http://kedin.es/cadiz/que-hacer/concierto-de-perro-en-la-sala-farandula-de-algeciras.html',
+ u'http://kedin.es/cadiz/que-hacer/leburn-maddox-en-directo-en-cadiz.html',
+ u'http://kedin.es/cadiz/que-hacer/concierto-de-howe-gelb-en-cadiz.html',
+ u'http://kedin.es/cadiz/que-hacer/mcenroe-en-concierto-en-la-linea-de-la-concepcion.html']
+
+
