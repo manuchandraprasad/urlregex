@@ -27,12 +27,12 @@ def find_common_substr(data):
     longest_common_substrings = []
     while(long_substr(data)):
         lcs = long_substr(data)
-        print data
+        longest_common_substrings.append(lcs)
         new_data = []
         for url in data:
-            new_data.append(url.replace(lcs,''))
+            new_data.append(url.replace(lcs,'<*>'))
         data = new_data
-        print new_data
+    print longest_common_substrings
 
 
-find_common_substr(test_urls)        
+#find_common_substr(test_urls_2)        
