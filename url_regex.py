@@ -35,7 +35,7 @@ Idea is to find the only changing part from the URL and make a regular expressio
 4.Make pattern from the list LCSs
 """
 
-def find_common_substr(data):
+def find_common_substrs(data):
     longest_common_substrings = []
     while(long_substr(data)):
         lcs = long_substr(data)
@@ -46,7 +46,7 @@ def find_common_substr(data):
         for url in data:
             new_data.append(url.replace(lcs,''))
         data = new_data
-    print longest_common_substrings
+    return longest_common_substrings
 
 
-find_common_substr(test_urls_2)        
+find_common_substr(test_urls_3)        
