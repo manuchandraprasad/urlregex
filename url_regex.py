@@ -1,5 +1,5 @@
 from test_data import *
-
+import re
 
 def long_substr(data):
     """
@@ -40,13 +40,18 @@ def find_common_substrs(data):
     while(long_substr(data)):
         lcs = long_substr(data)
         subs = substring_pos(data[0], lcs)
-        print subs
-        longest_common_substrings.append(lcs)
+        longest_common_substrings.append(subs)
         new_data = []
         for url in data:
             new_data.append(url.replace(lcs,''))
         data = new_data
     return longest_common_substrings
 
+def create_regex(data):
+    s = ("".join(find_common_substrs(data)))
+    s = re.escape(s) 
+    s = s.replace('\^','^')
+    s = s.replace('^^','.+')
+    s = s.replace('^','.+')
+    return re.compile(s)
 
-find_common_substr(test_urls_3)        
