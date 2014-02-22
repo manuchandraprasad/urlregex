@@ -1,4 +1,4 @@
-from test_data import test_urls
+from test_data import *
 
 
 def long_substr(data):
@@ -22,4 +22,17 @@ Idea is to find the only changing part from the URL and make a regular expressio
 3.Repeat one till there is no more LCS 
 4.Make pattern from the list LCSs
 """
-print long_substr(test_urls)
+
+def find_common_substr(data):
+    longest_common_substrings = []
+    while(long_substr(data)):
+        lcs = long_substr(data)
+        print data
+        new_data = []
+        for url in data:
+            new_data.append(url.replace(lcs,''))
+        data = new_data
+        print new_data
+
+
+find_common_substr(test_urls)        
