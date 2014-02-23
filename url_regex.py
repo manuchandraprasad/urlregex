@@ -2,6 +2,7 @@ from test_data import *
 import re
 from pprint import pprint
 
+
 def long_substr(data):
     """
     Prints the longest string that is common in the list of strings provided
@@ -16,19 +17,19 @@ def long_substr(data):
     return substr
 
 
-def substring_pos(string,substring):
+def substring_pos(string, substring):
     """
     Find the position of the substring in the given string and substitute ^ at boundaries
     """
     pos = string.index(substring)
     if pos == 0:
-        #Substring is in the begining of string
-        return substring+"^"
-    elif pos == len(string)-len(substring):
-        #Substring is in the end of the string
-        return "^"+substring 
+        # Substring is in the begining of string
+        return substring + "^"
+    elif pos == len(string) - len(substring):
+        # Substring is in the end of the string
+        return "^" + substring
     else:
-        return "^"+substring+"^"
+        return "^" + substring + "^"
 
 
 def find_common_substrs(data):
@@ -41,27 +42,35 @@ def find_common_substrs(data):
         lcs = long_substr(data)
         subs = substring_pos(data[0], lcs)
         longest_common_substrings.append(subs)
-        #Check if end of string reached
-        if(data[0].index(lcs) == len(data[0])-len(lcs)):
+        # Check if end of string reached
+        if(data[0].index(lcs) == len(data[0]) - len(lcs)):
             break
 
         new_data = []
         for url in data:
-            new_data.append(url.replace(lcs,''))
+            new_data.append(url.replace(lcs, ''))
         data = new_data
     return longest_common_substrings
+
 
 def create_regex(data):
     """
     Replaces the ^ character to add '.+' regex 
     """
-    #FIXME: Improve code to find the data type of the variable part and use a regex rule to replace it 
-    s = ("".join(find_common_substrs(data)))
-    s = re.escape(s) 
-    s = s.replace('\^','^')
-    s = s.replace('^^','(.+)')
-    s = s.replace('^','(.+)')
+    # FIXME: Improve code to find the data type of the variable part and use a regex rule to replace it
+    # Use isalpha , isalnum , isdigit functions to do the initial guess
+    lcs = find_common_substrs(data)
+    s = ("".join(lcs))
+    s = re.escape(s)
+    s = s.replace('\^', '^')
+    s = s.replace('^^', '(.+)')
+    s = s.replace('^', '(.+)')
     REGEX_URL = re.compile(s)
-    for url in data: 
-        print REGEX_URL.search(url).groups()
+    # Construct a dict with lists to store value of the variable parts
+    vals = dict((x, []) for x in lcs)
+    for url in data:
+        gs = REGEX_URL.search(url).groups()
+        for x in range(0,len(lcs)):
+            vals[vals.keys()[x]].append(gs[x])
+    pprint(vals)
 
