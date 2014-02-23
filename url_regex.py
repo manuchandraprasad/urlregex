@@ -72,5 +72,21 @@ def create_regex(data):
         gs = REGEX_URL.search(url).groups()
         for x in range(0,len(lcs)):
             vals[vals.keys()[x]].append(gs[x])
+
+    for key,val in vals.iteritems():
+        data_type = 'alpha'
+        new_val = []
+        for val_item in val:
+            if val_item.isdigit():
+                new_val.append('d')
+            elif val_item.isalnum():
+                new_val.append('w')
+            elif val_item.isalpha():
+                new_val.append('w')
+            else:
+                new_val.append('.')
+        vals[key] = new_val
+
     pprint(vals)
+
 
