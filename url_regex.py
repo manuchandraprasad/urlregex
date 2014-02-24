@@ -66,13 +66,14 @@ def create_regex(data):
     s = s.replace('^^', '(.+)')
     s = s.replace('^', '(.+)')
     REGEX_URL = re.compile(s)
+    number_of_vars = s.count('(.+)')
     # Construct a dict with lists to store value of the variable parts
-    vals = dict((x, []) for x in lcs)
+    vals = dict((x, []) for x in range(0,number_of_vars))
+    regex_guess_dict = vals   
     for url in data:
         gs = REGEX_URL.search(url).groups()
-        for x in range(0,len(lcs)):
+        for x in range(0,number_of_vars):
             vals[vals.keys()[x]].append(gs[x])
-
     for key,val in vals.iteritems():
         data_type = 'alpha'
         new_val = []
@@ -86,7 +87,8 @@ def create_regex(data):
             else:
                 new_val.append('.')
         vals[key] = new_val
-
-    pprint(vals)
+    for key,val in vals.iteritems():
+        regex_guess_dict[key] = max(set(val), key=val.count)
+    pprint(regex_guess_dict)
 
 
