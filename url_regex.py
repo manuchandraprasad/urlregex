@@ -78,7 +78,7 @@ def create_regex(data):
     for key,val in vals.iteritems():
         new_val = []
         #FIXME: Make a priority based list for guessing data type 
-        #Possible Case: 5 decimals & 1 alpa, the following code will guess it to be a \d+ but really its \w+
+        #Possible Case: 5 decimals & 1 alpa, the following code will guess it to be a \d+ but really its \w+P
         for val_item in val:
             if val_item.isdigit():
                 new_val.append('\d+')
@@ -93,7 +93,8 @@ def create_regex(data):
         regex_guess_dict[key] = max(set(val), key=val.count)
     for key,val in regex_guess_dict.iteritems():
         s = s.replace('(.+)',val,1)
-    print s
+    REGEX_URL = re.compile(s)
+    return REGEX_URL
 
 
 
