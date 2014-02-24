@@ -79,16 +79,19 @@ def create_regex(data):
         new_val = []
         for val_item in val:
             if val_item.isdigit():
-                new_val.append('d')
+                new_val.append('\d+')
             elif val_item.isalnum():
-                new_val.append('w')
+                new_val.append('\w+')
             elif val_item.isalpha():
-                new_val.append('w')
+                new_val.append('\w+')
             else:
-                new_val.append('.')
+                new_val.append('.+')
         vals[key] = new_val
     for key,val in vals.iteritems():
         regex_guess_dict[key] = max(set(val), key=val.count)
-    pprint(regex_guess_dict)
+    for key,val in regex_guess_dict.iteritems():
+        s = s.replace('(.+)',val,1)
+    print s
+
 
 
