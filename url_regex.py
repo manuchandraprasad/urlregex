@@ -74,9 +74,11 @@ def create_regex(data):
         gs = REGEX_URL.search(url).groups()
         for x in range(0,number_of_vars):
             vals[vals.keys()[x]].append(gs[x])
+    #Replace the possible character type for regex rules and store to list and find the most repeating one out of it            
     for key,val in vals.iteritems():
-        data_type = 'alpha'
         new_val = []
+        #FIXME: Make a priority based list for guessing data type 
+        #Possible Case: 5 decimals & 1 alpa, the following code will guess it to be a \d+ but really its \w+
         for val_item in val:
             if val_item.isdigit():
                 new_val.append('\d+')
