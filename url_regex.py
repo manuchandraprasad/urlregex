@@ -81,13 +81,13 @@ def create_regex(data):
         #Possible Case: 5 decimals & 1 alpa, the following code will guess it to be a \d+ but really its \w+P
         for val_item in val:
             if val_item.isdigit():
-                new_val.append('\d+')
+                new_val.append('(\d+)')
             elif val_item.isalnum():
-                new_val.append('\w+')
+                new_val.append('(\w+)')
             elif val_item.isalpha():
-                new_val.append('\w+')
+                new_val.append('(\w+)')
             else:
-                new_val.append('.+')
+                new_val.append('(.+)')
         vals[key] = new_val
     for key,val in vals.iteritems():
         regex_guess_dict[key] = max(set(val), key=val.count)
